@@ -1,0 +1,28 @@
+{
+  "name": "e-pharmacist",
+  "version": "1.0.1",
+  "description": "To ensure that the medicine  prescribed to patients are suitable and advise  patients about medicines, including how to takethem, what reactions may occur, and answer patients' questions.",
+  "main": "app.js",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.3",
+    "validator": "^13.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/agile3155110/e-pharmacist.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/agile3155110/e-pharmacist/issues"
+  },
+  "homepage": "https://gitlab.com/agile3155110/e-pharmacist#readme"
+}
