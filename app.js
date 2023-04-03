@@ -3,7 +3,7 @@ const express = require("express")
 const app = express()
 
 module.exports = app
-const userRouter = require('./routes/userrRoutes')
+const userRouter = require('./routes/userRoutes')
 
 app.use(express.json())
 
