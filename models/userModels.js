@@ -29,11 +29,22 @@ const userSchema = new mongoose.Schema({
         //password won't be included when we get the users
         select: false,
     },
+    passwordConfirm: {
+        type: String,
+        required: [true, 'Please confirm your password'],
+        validate:  {
+            validator: function (el) {
+                return el == this.password
+            },
+            message: 'Password are not same'
+        }
+    },
     active: {
         type: Boolean,
         default: true,
         select: false,
     },
+    // userSchema.pre()
 })
 
 const User = mongoose.model('User', userSchema)
