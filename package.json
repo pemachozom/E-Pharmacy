@@ -4,6 +4,7 @@
   "description": "To ensure that the medicine  prescribed to patients are suitable and advise  patients about medicines, including how to takethem, what reactions may occur, and answer patients' questions.",
   "main": "app.js",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongoose": "^7.0.3",
