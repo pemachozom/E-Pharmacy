@@ -7,15 +7,17 @@ router.post('/signup', authController.signup)
 router.post('/login', authController.login)
 
 router
-    .route('/')
+    .route('/')  //giving file path
     .get(userController.getAllUsers)
     .post(userController.createUser)
 
 
 router
-    .route('/:id')
+    .route('/:id') //redirect usercontroller
     .get(userController.getUser)
     .patch(userController.updateUser)
     .delete(userController.deleteUser)
+
+
 
 module.exports = router 

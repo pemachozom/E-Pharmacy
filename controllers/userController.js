@@ -1,4 +1,7 @@
 const User = require('./../models/userModels')
+
+//api creation
+
 exports.getAllUsers = async (req, res, next) => {
     try {
         const users = await User.find()
@@ -29,7 +32,7 @@ exports.getUser = async (req, res) => {
 
 exports.updateUser = async(req,res) => {
     try{
-        const user = await User.findByIdAndDelete(req.params.id);
+        const user = await User.findByIdAndDelete(req.params.id); //(req.params.id) send by user
         res.json({data: user, status : "success"});
     } catch (err) {
         res.status(500).json({error : err.message});

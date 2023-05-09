@@ -34,17 +34,18 @@ exports.signup = async (req, res, next) => {
     const newUser = await User.create(req.body)
 
     createSendToken(newUser, 201, res)
-    const token = signToken(newUser._id)
+    // const token = signToken(newUser._id)
 
-    res.status(201).json({
-        status : 'success',
-        token,
-        data : {
-            user : newUser
-        }
-    }
+    // res.status(201).json({
+    //     status : 'success',
+    //     token,
+    //     data : {
+    //         user : newUser
+    //     }
+    // }
     
-    )}
+    // )
+    }
 
     catch(err) {
         res.status(500).json({error: err.message});
@@ -59,8 +60,13 @@ exports.login = async (req, res, next) => {
             return next(new AppError('Please provide an email and password!', 400))
         }
         
+        // 1.check if user exists && password is correct
         const user = await User.findOne({email}).select('+password')
+         //fetch document(particular users)and check and store it as a user
+        //user.findOne(find particular info) is document that is the part of data
+        //collection in local database is users
 
+         // 2. check if user exists&& password is correct
         const correct = await user.correctPassword(password, user.password)
 
         if (!user || !correct) {
@@ -72,13 +78,14 @@ exports.login = async (req, res, next) => {
  
         // }
       
+        //3.if everthing ok, send token to client
         createSendToken(user, 200, res)
 
-        const token = signToken(user._id)
-        res.status(200).json({
-            status : 'success',
-            token
-        })
+        // const token = signToken(user._id)
+        // res.status(200).json({
+        //     status : 'success',
+        //     token
+        // })
             
             
     }
