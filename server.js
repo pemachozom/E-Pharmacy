@@ -11,7 +11,7 @@ const local_DB = process.env.DATABASE.replace(
 const DB = process.env.DATABASE_LOCAL
 // console.log(process.env.DATABASE_PASSWORD)
 mongoose.connect(local_DB).then((con) => {
-    console.log(con.connections)
+    // console.log(con.connections)
     console.log('DB connection successful')
 }).catch(error => console.log(error));
 
