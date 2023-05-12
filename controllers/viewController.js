@@ -17,3 +17,8 @@ exports.getSignForm = (req, res) => {
  exports.getHome = (req, res) => {
     res.sendFile(path.join(__dirname, '../', 'views', 'dashboard.html'))
 }
+
+/*  PROFILE PAGE*/ 
+exports.getProfile = (req, res) => {
+    res.sendFile(path.join(__dirname, '../', 'views', 'myprofilepage.html'))
+}   

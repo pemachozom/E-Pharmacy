@@ -5,8 +5,8 @@ const app = express() //express dependency found in app
 // const userRouter =require('./routes/userRoutes')
 const viewRouter = require('./routes/viewRoutes')
 
-// const cookieParser = require('cookie-parser')
-// app.use(cookieParser())
+const cookieParser = require('cookie-parser')
+app.use(cookieParser())
 
 app.use(express.json()) //app.-variable, 
 app.use('/api/v1/users', userRouter) //show route
