@@ -48,3 +48,56 @@ exports.deleteUser = async(req, res) => {
         res.status(500).json({error: err.message})
     }
 }
+
+//get the route and manipulate the database
+// execute the route command
+const filterObj =(obj, ...allowedFields)=>{
+    const newObj = {}
+    Object.keys(obj).forEach((el)=>{
+        if (allowedFields.includes(el)) newObj[el] = obj[el]
+    })
+    return newObj
+}
+
+exports.updateMe = async (req, res, next)=>{
+    try{
+        // 1.create error if user POSTs password data
+        if (req.body.password || req.body.passwordConfirm){
+            return next(
+                new AppError(
+                    'This route is not for updates. please use /updateMyPassword',
+                    400,
+                ),
+            )
+        }
+        // 2. Filtered out unwanted fields names that are not allowed to be update
+        
+        const filteredBody = filterObj(req.body, 'name', 'email')
+        if (typeof req.body.photo !== 'undefined'){
+            filteredBody.photo = req.file.filename
+        }
+
+        // const filteredBody = filterObj(req.body, 'name', 'email')
+        // if (req.file && req.file.filename) {
+        //     filteredBody.photo = req.file.filename
+        // }
+        
+        
+        var obj =JSON.parse(req.cookies.token)
+        console.log(obj)
+        const updatedUser = await User.findByIdAndUpdate(obj['_id'], filteredBody, {
+            new: true,
+            runValidators: true,
+        })
+
+        res.status(200).json({
+            status: 'success',
+            data: {user: updatedUser},
+        })
+    }
+    catch (err){
+        res.status(500).json({error: err.message});
+    }
+}
+
+

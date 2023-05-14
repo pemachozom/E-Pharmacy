@@ -8,18 +8,18 @@ router.post('/login', authController.login)
 router.post('/logout', authController.logout)
 
 
-// router.patch(
-//     '/updateMyPassword',
-//     authController.protect,
-//     authController.updatePassword,
-// )
+router.patch(
+    '/updateMyPassword',
+    authController.protect,
+    authController.updatePassword,
+)
 
-// router.patch(
-//     '/updateMe',
-//     authController.protect,
-//     userController.uploadUserPhoto,
-//     userController.updateMe,
-// )
+router.patch(
+    '/updateMe',
+    authController.protect,
+    userController.uploadUserPhoto,
+    userController.updateMe,
+)
 router  
     .route('/')   //giving file path 
     .get(userController.getAllUsers)   //
