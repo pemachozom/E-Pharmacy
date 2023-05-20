@@ -19,16 +19,16 @@ if (obj.role == 'admin') {
  
 var el1 = document.querySelector('.form.form-user-data')
 el1.innerHTML =
-  ` <div class="form_group"> <label class="formlabel" for="name">Name</label> <input class="form_input" id="name" type="text" value="` +
+  ` <div class="form__group"> <label class="form__label" for="name">Name</label> <input class="form__input" id="name" type="text" value="` +
   obj.name.toUpperCase() +
-  `" required="required" name="name"/></div><div class="form_group ma-bt-md"><label class="form_label" for="email">Email address</label>
+  `" required="required" name="name"/></div><div class="form__group ma-bt-md"><label class="form__label" for="email">Email address</label>
 <input class="form__input" id="email" type="email" value="` +
   obj.email +
   `" required="required" name="email"/>
-</div><div class="form_group formphoto-upload"><img class="form_user-photo" src="../img/users/` +
+</div><div class="form__group formphoto-upload"><img class="form__user-photo" src="../img/` +
   obj.photo +
   `" alt="User photo"/><input class="form__upload" type="file" accept="image/*" id="photo" name="photo"/><label for="photo">Choose new photo</label></div>
-<div class "form__group right">  <button class="btn btn--small btn--green">Save settings</button></div>`
+<div class = "form__group right">  <button class="btn btn--small btn--green">Save settings</button></div>`
  
 var el2 = document.querySelector('form.form-user-password')
 el2.innerHTML = `   <div class="form__group">
