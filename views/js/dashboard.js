@@ -38,3 +38,46 @@ if (obj._id){
     el.innerHTML = 
     '<a class="nav__el nav__el--cta" href="/login">Log in</a> <a class="nav__el nav__el--cta" href="/signup">Sign up</a>'
 }
+
+const allNews = async () => {
+    try {
+        const res = await axios({
+            method: 'GET',
+            url: 'http://localhost:4001/api/v1/news',
+        })
+        displayNews(res.data)
+    } catch (err) {
+        console.log (err)
+    }
+}
+allNews()
+
+const displayNews = (news) => {
+    var arr = news.data.news1
+    console.log(err)
+    for (let i = 0; i < arr.length; i++) {
+        var card = document.querySelector('.card').cloneNode(true)
+        var el1 = card.querySelector('.card__picture-img')
+        var el2 = card.querySelector('.card__sub-heading')
+        var el3 = card.querySelector('.card__text')
+        var el4 = card.querySelector('.publishedAt')
+        var el5 = card.querySelector('.publishedBy')
+
+        const element = arr[i]
+        el1.innerHTML = '' + element.imageCover
+        el2.innerHTML = '' + element.title
+        el3.innerHTML = '' + element.description
+
+        var d = new Date(element.publishedAt)
+        el4.innerHTML = '' + d.toLocaleString('en-US', {
+            month: 'long',
+            year: "numeric",
+        })
+
+        el5.innerHTML = '' + element.user.name
+        var card2 = document.querySelector('.card')
+        card2.insertAdjacentElement('afterend',card)
+        // console.log(element)
+    }
+    document.querySelector('.card').remove()
+}
