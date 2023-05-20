@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
+const bcrypt = require('bcryptjs')
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -8,10 +9,10 @@ const userSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: [true, 'Please provide your name!'],
+        required: [true, 'Please provide your email'],
         unique: true,
-        lowercase: true,
-        validate: [validator.isEmail, 'Please provide a valid email'],
+        lowercase: true, 
+        validate:[validator.isEmail, 'Please provide a valid email'],
     },
     photo: {
         type: String,
@@ -19,22 +20,57 @@ const userSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        enum: ['user', 'sme', 'pharmacist', 'admin'],
-        default: 'user',
+        enum: ['user','sme','pharmacist','admin'],
+        default:'user',
     },
     password: {
         type: String,
         required: [true, 'Please provide a password!'],
         minlength: 8,
-        //password won't be included when we get the users
+        // passsword wont be included when we get a users
         select: false,
     },
     active: {
         type: Boolean,
-        default: true,
-        select: false,
+        default:true,
+        select:false,
+    },
+    passwordConfirm: {
+        type:String,
+        required: [true, 'Please confirm your password'],
+        validate:{
+            validator: function(el){
+                return el===this.password
+            },
+            message:'Passwords are not the same',
+
+        }
+
     },
 })
 
+
+//mongoose middleware
+userSchema.pre('save', async function(next){  //function(next) ananomous fn.. next ..middleware(call back function)
+    // only run this function if password was actually modified
+    if(!this.isModified('password')) return next() //if passw
+
+    // Hash the password with cost of 12
+    this.password = await bcrypt.hash(this.password, 12)// 12 cost parameter
+
+    // Delete passwordConfirm field
+    this.passwordConfirm = undefined
+    next()
+})
+
+//instance method is available in all document of certain collections
+userSchema.methods.correctPassword = async function( 
+    candidatePassword,
+    userPassword,
+){
+    return await bcrypt.compare(candidatePassword, userPassword)
+}
+
 const User = mongoose.model('User', userSchema)
 module.exports = User
+
