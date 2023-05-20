@@ -30,7 +30,11 @@ const userSchema = new mongoose.Schema({
         // passsword wont be included when we get a users
         select: false,
     },
-
+    active: {
+        type: Boolean,
+        default:true,
+        select:false,
+    },
     passwordConfirm: {
         type:String,
         required: [true, 'Please confirm your password'],
@@ -42,12 +46,6 @@ const userSchema = new mongoose.Schema({
 
         }
 
-    },
-
-    active: {
-        type: Boolean,
-        default:true,
-        select:false,
     },
 })
 
@@ -66,7 +64,7 @@ userSchema.pre('save', async function(next){  //function(next) ananomous fn.. ne
 })
 
 //instance method is available in all document of certain collections
-userSchema.methods.correctPassword = async function( //
+userSchema.methods.correctPassword = async function( 
     candidatePassword,
     userPassword,
 ){

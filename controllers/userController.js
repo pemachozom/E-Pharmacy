@@ -1,4 +1,36 @@
 const User = require('./../models/userModels')
+const AppError = require('../utils/appError')
+
+const multer = require('multer')
+
+const multerStorage = multer.diskStorage({
+    destination:(req,file,cb) => {
+        cb(null,'views/img/users')
+    },
+    filename:(req,file,cb) => {
+        //user-id-currentimestamp.extension
+        var obj = JSON.parse(req.cookies.token)
+        const ext = file.mimetype.split('/')[1]
+        cb(null,`user-${obj['_id']}-${Date.now()}.${ext}`)
+
+    },
+})
+
+const multerFilter = (req,file,cb) => {
+    if (file.mimetype.startsWith('image')) {
+        cb(null,true)
+    } else {
+        cb(new AppError('Not an image! Please upload only images',400),false)
+
+    }
+}
+const upload = multer({
+    storage:multerStorage,
+    fileFilter:multerFilter,
+})
+
+exports.uploadUserPhoto = upload.single('photo')
+
 
 //api creation
 
@@ -73,7 +105,7 @@ exports.updateMe = async (req, res, next)=>{
         // 2. Filtered out unwanted fields names that are not allowed to be update
         
         const filteredBody = filterObj(req.body, 'name', 'email')
-        if (typeof req.body.photo !== 'undefined'){
+        if (req.body.photo !== 'undefined'){
             filteredBody.photo = req.file.filename
         }
 
@@ -84,7 +116,7 @@ exports.updateMe = async (req, res, next)=>{
         
         
         var obj =JSON.parse(req.cookies.token)
-        console.log(obj)
+        // console.log(obj)
         const updatedUser = await User.findByIdAndUpdate(obj['_id'], filteredBody, {
             new: true,
             runValidators: true,

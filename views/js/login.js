@@ -17,9 +17,9 @@ const login = async (email, password) => {
                 location.assign('/')
             }, 1500)
             var obj = res.data.data.user
-            console.log(obj)
+            // console.log(obj)
             document.cookie = ' token = ' + JSON.stringify(obj)
-            console.log(obj)
+            // console.log(obj)
         }
     } catch (err) {
         let message = 
