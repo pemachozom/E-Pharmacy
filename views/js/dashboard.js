@@ -45,16 +45,17 @@ const allNews = async () => {
             method: 'GET',
             url: 'http://localhost:4001/api/v1/news',
         })
-        displayNews(res.data)
+        displayNews(res.data,null)
     } catch (err) {
-        console.log (err)
+        // console.log (err)
+        displayNews(null, err)
     }
 }
 allNews()
 
-const displayNews = (news) => {
+const displayNews = (news,err) => {
     var arr = news.data.news1
-    console.log(err)
+    // console.log(err)
     for (let i = 0; i < arr.length; i++) {
         var card = document.querySelector('.card').cloneNode(true)
         var el1 = card.querySelector('.card__picture-img')
@@ -77,7 +78,7 @@ const displayNews = (news) => {
         el5.innerHTML = '' + element.user.name
         var card2 = document.querySelector('.card')
         card2.insertAdjacentElement('afterend',card)
-        // console.log(element)
+        console.log(element)
     }
     document.querySelector('.card').remove()
 }
