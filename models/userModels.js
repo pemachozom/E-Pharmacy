@@ -63,6 +63,24 @@ userSchema.pre('save', async function(next){  //function(next) ananomous fn.. ne
     next()
 })
 
+// Add Hashing to the Update of Password
+userSchema.pre('findOneAndUpdate', async function (next) {
+    const update = this.getUpdate();
+    if(
+        update.password !== '' &&
+        update.password !== undefined &&
+        update.password == update.passwordConfirm) {
+        
+        // Hash the password with cost 12
+        this.getUpdate().password = await bcrypt.hash(update.password, 12)
+
+        update.passwordConfirm = undefined
+        next()
+        }else
+        next()
+
+})
+
 //instance method is available in all document of certain collections
 userSchema.methods.correctPassword = async function( 
     candidatePassword,

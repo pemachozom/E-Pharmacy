@@ -65,7 +65,7 @@ export const updateSettings = async (data, type) => {
         url,
         data,
       })
-      console.log(res.data.status)
+      /* console.log(res.data.status) */
       if (res.data.status === 'success') {
         showAlert('success', 'Data updated successfully!')
       }
@@ -87,9 +87,9 @@ userDataForm.addEventListener('submit', (e) => {
   const form = new FormData()
   form.append('name', document.getElementById('name').value)
   form.append('email', document.getElementById('email').value)
-  form.append('photo', document.getElementById('photo').files[0])
+  form.append('photo', document.getElementById('photo').files[1])
   form.append('userId', obj._id)
-  console.log(form)
+  /*console.log(form) */
   updateSettings(form, 'data')
 })
 

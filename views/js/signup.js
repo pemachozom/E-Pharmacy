@@ -1,8 +1,8 @@
-import {showAlert} from './alert.js'
-
+import { showAlert } from './alert.js'
 
 export const signup = async (name, email, password, passwordConfirm, role) => {
     try{
+        
         const res = await axios({
             method:'POST',
             url:'http://localhost:4001/api/v1/users/signup',
@@ -35,7 +35,7 @@ document.querySelector('.form').addEventListener('submit', (e) =>{
     const name = document.getElementById('name').value
     const email = document.getElementById('email').value
     const password = document.getElementById('password').value
-    const passwordConfirm = document.getElementById('password-confirm').value
+    const passwordConfirm = document.getElementById('passwordConfirm').value
     const role = document.querySelector('input[name=role]:checked').value
     signup(name, email, password, passwordConfirm, role)
 })
