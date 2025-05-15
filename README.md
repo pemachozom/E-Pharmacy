@@ -1,15 +1,15 @@
-## E-Pharmacist
+E-Pharmacist 💊
 
 This project was developed as part of a classroom exercise under the guidance of our tutor. The E-Pharmacist web application aims to simplify the process of managing pharmacy inventories and prescriptions.
 
 ---
 
-## AIM
+# 🎯 AIM
 
 This project aims to deliver the right product, with incremental and frequent delivery of small chunks of functionality, through small cross-functional self-organizing teams, enabling frequent customer feedback and course correction as needed.
 
-1. Scrum methodology  
-2. Constant customer feedback
+1. 🌀 Scrum methodology  
+2. 🔄 Constant customer feedback
 
 ---
 
@@ -27,9 +27,9 @@ This project was completed during a class session with direct support and superv
 
 ## 🛠️ Technologies Used
 
-- HTML, CSS, JavaScript  
-- **Node.js** (backend)  
-- **MongoDB** (database)  
+- 💻 HTML, CSS, JavaScript  
+- ⚙️ **Node.js** (backend)  
+- 🗄️ **MongoDB** (database)  
 
 ---
 
