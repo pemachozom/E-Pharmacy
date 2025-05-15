@@ -1,10 +1,10 @@
-E-Pharmacist
+## E-Pharmacist
 
 This project was developed as part of a classroom exercise under the guidance of our tutor. The E-Pharmacist web application aims to simplify the process of managing pharmacy inventories and prescriptions.
 
 ---
 
-# AIM
+## AIM
 
 This project aims to deliver the right product, with incremental and frequent delivery of small chunks of functionality, through small cross-functional self-organizing teams, enabling frequent customer feedback and course correction as needed.
 
