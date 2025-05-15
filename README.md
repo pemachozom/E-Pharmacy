@@ -1,4 +1,4 @@
-## E-Pharmacist 💊
+# E-Pharmacist 💊
 
 This project was developed as part of a classroom exercise under the guidance of our tutor. The E-Pharmacist web application aims to simplify the process of managing pharmacy inventories and prescriptions.
 
@@ -23,6 +23,12 @@ E-Pharmacist is a web-based system designed to help pharmacists efficiently mana
 
 This project was completed during a class session with direct support and supervision from our tutor, serving as practical hands-on learning for web development concepts.
 
+---
+## 🔁 Agile Workflow
+
+This project followed the **Agile Framework**, implementing iterative development and constant team collaboration. Tasks, user stories, and sprint progress were managed using **Asana**:
+
+🔗 [Asana Project Board](https://app.asana.com/1/1204103488531526/project/1204124841775511/board/1204124930918714)
 ---
 
 ## 🛠️ Technologies Used
