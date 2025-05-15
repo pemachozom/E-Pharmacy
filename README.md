@@ -1,13 +1,15 @@
-# E-Pharmacist
-
+E-Pharmacist
 
 This project was developed as part of a classroom exercise under the guidance of our tutor. The E-Pharmacist web application aims to simplify the process of managing pharmacy inventories and prescriptions.
----
-# AIM
-This project aim to right product, with incremental and frequent delivery of small chunks of functionality, through small cross-functional self-organizing teams, enabling frequent customer feedback and course correction as needed.
 
-1. Scrum methodology
-1. Constant customer feedback
+---
+
+# AIM
+
+This project aims to deliver the right product, with incremental and frequent delivery of small chunks of functionality, through small cross-functional self-organizing teams, enabling frequent customer feedback and course correction as needed.
+
+1. Scrum methodology  
+2. Constant customer feedback
 
 ---
 
@@ -34,6 +36,3 @@ This project was completed during a class session with direct support and superv
 ## 📌 Status
 
 ✅ Completed as part of class work with tutor supervision.
-
-
-This project was developed as part of a classroom exercise under the guidance of our tutor. The E-Pharmacist web application aims to simplify the process of managing pharmacy inventories and prescriptions.
