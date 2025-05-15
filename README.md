@@ -26,9 +26,9 @@ This project was completed during a class session with direct support and superv
 ---
 ## 🔁 Agile Workflow
 
-This project followed the **Agile Framework**, implementing iterative development and constant team collaboration. Tasks, user stories, and sprint progress were managed using **Asana**:
+This project followed the **Agile Framework**, implementing iterative development and constant team collaboration. Tasks, user stories, and sprint progress were managed using Asana:
+🔗 [Asana Project Board](https://app.asana.com/1/1204103488531526/project/1204124841775511/board/1204124930918714)
 
- 🔗 [Asana Project Board](https://app.asana.com/1/1204103488531526/project/1204124841775511/board/1204124930918714)
 ---
 
 ## 🛠️ Technologies Used
