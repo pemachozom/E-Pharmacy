@@ -1,5 +1,6 @@
 # E-Pharmacist
 
+
 This project was developed as part of a classroom exercise under the guidance of our tutor. The E-Pharmacist web application aims to simplify the process of managing pharmacy inventories and prescriptions.
 ---
 # AIM
@@ -34,7 +35,5 @@ This project was completed during a class session with direct support and superv
 
 ✅ Completed as part of class work with tutor supervision.
 
-For open source projects, say how it is licensed.
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+This project was developed as part of a classroom exercise under the guidance of our tutor. The E-Pharmacist web application aims to simplify the process of managing pharmacy inventories and prescriptions.
